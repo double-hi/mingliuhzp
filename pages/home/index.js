@@ -15,14 +15,12 @@ Page({
       size: 10
     },
     loadmore: true,
+    poster1: [],
+    poster2: [],
     goodsList: [],
     goodsListNew: [],
     goodsListHot: [],
-    swiperData: [
-      'http://joolun-open.oss-cn-zhangjiakou.aliyuncs.com/banner1.png',
-      'http://joolun-open.oss-cn-zhangjiakou.aliyuncs.com/banner2.png',
-      'http://joolun-open.oss-cn-zhangjiakou.aliyuncs.com/banner3.png'
-    ],
+    swiperData: [],
     cardCur: 0,
     noticeData: []
   },
@@ -41,6 +39,8 @@ Page({
   },
   loadData(){
     this.goodsNew()
+    this.posterGet1()
+    this.posterGet2()
     this.goodsHot()
     this.goodsPage()
   },
@@ -60,18 +60,54 @@ Page({
       }
     }
   },
+  navigateToOrder: function(event) {
+    wx.navigateTo({
+      url: '/pages/goods/goods-detail/index?id='+event.currentTarget.dataset.value,
+    })
+  },
   //新品首发
   goodsNew() {
     app.api.goodsPage({
       searchCount: false,
       current: 1,
       size: 5,
-      descs: 'create_time'
+      descs: 'sort'
     })
       .then(res => {
         let goodsListNew = res.data.records
         this.setData({
           goodsListNew: goodsListNew
+        })
+      })
+  },
+  //海报
+  posterGet1() {
+    app.api.goodsPage({
+      searchCount: false,
+      current: 1,
+      size: 5,
+      descs: 'sort',
+      sort: -1
+    })
+      .then(res => {
+        let poster = res.data.records[0]
+        this.setData({
+          poster1: poster
+        })
+      })
+  },
+  posterGet2() {
+    app.api.goodsPage({
+      searchCount: false,
+      current: 1,
+      size: 5,
+      descs: 'sort',
+      sort: -2
+    })
+      .then(res => {
+        let poster = res.data.records[0]
+        this.setData({
+          poster2: poster
         })
       })
   },

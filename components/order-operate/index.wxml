@@ -23,12 +23,12 @@
   </button>
   <button class="cu-btn radius margin-right shadow-blur payment" bindtap="unifiedOrder" loading="{{loading}}" 
   disabled="{{loading}}" type="" wx:if="{{orderInfo.isPay == '0' && !orderInfo.status}}">
-    <text class="text-white">付款</text>
+    <text class="text-white">支付</text>
   </button>
-  <!-- <button class="cu-btn round line-red margin-right" bindtap="urgeOrder" loading="{{loading}}" 
+  <button class="cu-btn round line-red margin-right" bindtap="urgeOrder" loading="{{loading}}" 
   disabled="{{loading}}" type="" wx:if="{{orderInfo.status == '1'}}">
     提醒卖家发货
-  </button> -->
+  </button>
   <button class="cu-btn radius margin-right shadow-blur confirm-goods" bindtap="orderReceive" loading="{{loading}}" 
   disabled="{{loading}}" type="" wx:if="{{orderInfo.status == '2'}}">
     <text class="text-white">确认收货</text>

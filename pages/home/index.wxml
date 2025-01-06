@@ -12,14 +12,16 @@
     </navigator>
   </view>
 </view>
-<view class="margin-top-bar bg-white">
-<navigator hover-class="none" url='/pages/goods/goods-detail/index?id=1355440649314263041'>
-  <swiper class="screen-swiper square-dot" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500" bindchange="change" indicator-color="#cccccc" indicator-active-color="#676767">
-    <swiper-item wx:for="{{swiperData}}" wx:key="index">
-      <image src="{{item}}"></image>
-    </swiper-item>
-  </swiper>
-</navigator>
+<view class="margin-top-bar bg-white" >
+  <view>
+    <swiper class="screen-swiper square-dot" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500" indicator-color="#cccccc" indicator-active-color="#676767">
+      <swiper-item wx:for="{{goodsListNew}}" wx:key="index">
+        <span bindtap="navigateToOrder"  data-value="{{item.id}}">
+          <image src="{{item.picUrls}}"></image>
+        </span>
+      </swiper-item>
+    </swiper>
+  </view>
 <!-- 公告 -->
 <view class="adsec light bg-white margin-top-sm">
   <swiper class="swiper_container" autoplay="true" circular="true" interval="6000">
@@ -37,14 +39,14 @@
     </swiper-item>
   </swiper>
 </view>
-<navigator hover-class="none" url='/pages/goods/goods-detail/index?id=1355440649314263041'>
-  <image class="margin-top-sm goods-image" src="http://joolun-open.oss-cn-zhangjiakou.aliyuncs.com/goods-1.png"></image>
+<navigator hover-class="none" url='/pages/goods/goods-detail/index?id={{poster1.id}}'>
+  <image class="margin-top-sm goods-image" src="{{poster1.posterUrls}}"></image>
   <view class="flex justify-between margin-top goods-buy">
     <view class="cu-btn round text-white buy-now">立即购买</view>
   </view>
 </navigator>
-<navigator hover-class="none" url='/pages/goods/goods-detail/index?id=1355412081553190914'>
-  <image class="margin-top-sm goods-image" src="http://joolun-open.oss-cn-zhangjiakou.aliyuncs.com/goods-2.png"></image>
+<navigator hover-class="none" url='/pages/goods/goods-detail/index?id={{poster2.id}}'>
+  <image class="margin-top-sm goods-image" src="{{poster2.posterUrls}}"></image>
   <view class="flex justify-between margin-top goods-buy">
     <view class="cu-btn round text-white buy-now">立即购买</view>
   </view>

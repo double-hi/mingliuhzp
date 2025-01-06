@@ -25,12 +25,12 @@ Component({
     loading: false
   },
   ready() {
-    let that = this
-    setTimeout(function () {
-      if (that.data.callPay) {
-        that.unifiedOrder()
-      }
-    }, 1000)
+    // let that = this
+    // setTimeout(function () {
+    //   if (that.data.callPay) {
+    //     that.unifiedOrder()
+    //   }
+    // }, 1000)
   },
   methods: {
     orderReceive(){
